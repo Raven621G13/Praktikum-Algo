@@ -1,0 +1,27 @@
+# Fungsi 1: Mengecek apakah angka bisa dibagi habis
+def cek_pembagi(angka, pembagi):
+    if angka % pembagi == 0:
+        return True
+    else:
+        return False
+
+
+# Fungsi 2: Menentukan bilangan prima
+def bilangan_prima(angka):
+    if angka <= 1:
+        return False
+
+    for i in range(2, angka):
+        if cek_pembagi(angka, i):
+            return False
+
+    return True
+
+
+# Program utama
+angka = int(input("Masukkan bilangan: "))
+
+if bilangan_prima(angka):
+    print(angka, "adalah bilangan prima.")
+else:
+    print(angka, "bukan bilangan prima.")
