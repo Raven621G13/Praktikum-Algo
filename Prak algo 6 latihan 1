@@ -1,0 +1,45 @@
+def hitung_rata_rata(daftar_nilai, skala={
+    "A": 4.00, "A-": 3.75,
+    "B+": 3.50, "B": 3.00, "B-": 2.75,
+    "C+": 2.50, "C": 2.00, "C-": 1.75,
+    "D-": 1.50, "E-": 1.25
+}):
+    total = 0
+    jumlah = 0
+
+    for nilai in daftar_nilai:
+        total += skala[nilai]
+        jumlah += 1
+
+    if jumlah > 0:
+        rata_rata = round(total / jumlah, 2)
+    else:
+        rata_rata = 0
+
+    return total, jumlah, rata_rata
+
+
+# Program utama
+daftar_nilai = []
+
+while True:
+    nilai = input("Masukkan nilai (A, B+, C-, selesai): ").upper()
+
+    if nilai == "SELESAI" or nilai == "":
+        break
+
+    if nilai in ["A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D-", "E-"]:
+        daftar_nilai.append(nilai)
+    else:
+        print("Nilai tidak valid!")
+
+# Memanggil fungsi
+total, jumlah, rata_rata = hitung_rata_rata(daftar_nilai)
+
+# Menampilkan hasil
+if jumlah > 0:
+    print("Total nilai:", total)
+    print("Jumlah mata kuliah:", jumlah)
+    print("Rata-rata GPA:", rata_rata)
+else:
+    print("Tidak ada nilai yang dimasukkan.")
