@@ -1,0 +1,21 @@
+# Fungsi untuk menentukan akhiran angka
+def urutan(angka):
+    if angka % 100 >= 11 and angka % 100 <= 13:
+        akhiran = "th"
+    elif angka % 10 == 1:
+        akhiran = "st"
+    elif angka % 10 == 2:
+        akhiran = "nd"
+    elif angka % 10 == 3:
+        akhiran = "rd"
+    else:
+        akhiran = "th"
+
+    return str(angka) + akhiran
+00
+
+# Program utama
+angka = int(input(">>"))
+hasil = urutan(angka)
+
+print(">>" + hasil)
